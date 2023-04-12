@@ -1,0 +1,30 @@
+import { Box, Button, Stack, TextField } from "@mui/material";
+import { useState } from "react";
+
+export default function TodoAddBar({ onTodoAdd }) {
+  const [text, setText] = useState("");
+  function handleInputChange(e) {
+    setText(e.target.value);
+  }
+
+  return (
+    <Stack direction="row">
+      <TextField
+        label="New task"
+        variant="outlined"
+        value={text}
+        onChange={handleInputChange}
+        sx={{ flexGrow: 1 }}
+      />
+      <Button
+        variant="contained"
+        onClick={() => {
+          onTodoAdd({ id: crypto.randomUUID(), name: text, done: false });
+          setText("");
+        }}
+      >
+        Add
+      </Button>
+    </Stack>
+  );
+}
