@@ -22,6 +22,7 @@ export default function TodoAddBar({ onTodoAdd }) {
           onTodoAdd({ id: crypto.randomUUID(), name: text, done: false });
           setText("");
         }}
+        disabled={text === ""}
       >
         Add
       </Button>

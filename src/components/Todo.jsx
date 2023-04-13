@@ -17,7 +17,12 @@ export default function Todo() {
   function handleTodoDelete(id) {
     setTodos(todos.filter((todo) => todo.id !== id));
   }
-  function handleTodoEdit(updateTodo) {}
+  function handleTodoEdit(updateTodo) {
+    setTodos(
+      todos.map((todo) => (todo.id === updateTodo.id ? updateTodo : todo))
+    );
+  }
+
   function handleTodoStatusChange(id) {
     const newTodos = todos.map((todo) =>
       todo.id === id ? { ...todo, done: !todo.done } : todo
@@ -42,6 +47,7 @@ export default function Todo() {
           status={status}
           onTodoStatusChange={handleTodoStatusChange}
           onTodoDelete={handleTodoDelete}
+          onTodoEdit={handleTodoEdit}
         />
       </Container>
     </Box>

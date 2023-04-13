@@ -6,6 +6,7 @@ export default function TodoList({
   status,
   onTodoStatusChange,
   onTodoDelete,
+  onTodoEdit,
 }) {
   let filterTodos;
   if (status === "all") {
@@ -24,6 +25,7 @@ export default function TodoList({
           todo={todo}
           onTodoDelete={onTodoDelete}
           onTodoStatusChange={onTodoStatusChange}
+          onTodoEdit={onTodoEdit}
         />
       ))}
     </List>

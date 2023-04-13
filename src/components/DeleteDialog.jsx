@@ -8,7 +8,6 @@ import {
 } from "@mui/material";
 
 export default function DeleteDialog({ todo, open, onClose, onTodoDelete }) {
-  console.log(todo);
   return (
     <Dialog
       open={open}
